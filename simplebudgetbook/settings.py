@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,35 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@a_y^1h+-*$+x#s^v&b*y$qfn_be-&p9*!^*zrzlp$0l)7zisy'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+SITE_ID = 1
+# AUTH_USER_MODEL = 'authuser.User'
+# EMAIL_REQUIRED = True
+# UNIQUE_EMAIL = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+REST_SESSION_LOGIN = True
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+
+}
+
+REST_AUTH_SERIALIZERS = {
+    # 'LOGIN_SERIALIZER': '',
+    # 'REGISTER_SERIALIZER': '',
+}
 
 
 # Application definition
@@ -37,6 +61,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # DjangoRestFramework
+    'rest_framework',
+    'rest_framework.authtoken',
+    # rest-auth | allauth
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
 ]
 
 MIDDLEWARE = [
@@ -103,9 +136,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = config('LANGUAGE')
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = config('TIME_ZONE')
 
 USE_I18N = True
 
