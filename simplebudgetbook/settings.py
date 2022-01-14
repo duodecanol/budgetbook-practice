@@ -29,7 +29,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ["*"]
 
 SITE_ID = 1
-# AUTH_USER_MODEL = 'authuser.User'
+AUTH_USER_MODEL = 'authuser.User'
 # EMAIL_REQUIRED = True
 # UNIQUE_EMAIL = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -70,6 +70,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    # Custom apps
+    'authuser',
 ]
 
 MIDDLEWARE = [
