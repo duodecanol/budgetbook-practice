@@ -23,7 +23,8 @@ class User(AbstractUser):
     """
     기본 유저 클래스를 확장하여 사용. 기본필드는 필요하므로 AbstractBaseUser보다는 AbstractUser를 상속받는다.
     """
-    # TODO: 기본 속성 is_active가 False이면 로그인 불가하도록
+    # TODO: 기본 속성 is_active가 False이면 휴면 계정처리되어 복구과정 거치고
+    # TODO: 추가 속성 is_deleted가 False이면 삭제/탈퇴 계정 처리되도록
     photo = models.ImageField(_('User Photo'), upload_to='users/photos', null=True, blank=True)
     date_of_birth = models.DateField(_('Date of birth'), null=True, blank=True)
     mobile_number = models.CharField(_('User mobile phone number'),  max_length=15, null=True, blank=True)
@@ -31,6 +32,7 @@ class User(AbstractUser):
     country_of_origin = models.CharField(_('User country of origin'),  max_length=255, null=True, blank=True)
     location = models.CharField(_('User location'),  max_length=255, null=True, blank=True)
     is_deleted = models.BooleanField(_('User is deleted'), default=False)
+
     # TODO: Reference Models
     # default_currency = models.CharField(_('Default Currency'),  max_length=3, null=True, blank=True)
     # user_assets =

@@ -29,10 +29,11 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = ["*"]
 
 SITE_ID = 1
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# allauth settings
 AUTH_USER_MODEL = 'userprofile.User'
 # EMAIL_REQUIRED = True
 # UNIQUE_EMAIL = True
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 REST_SESSION_LOGIN = True
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
@@ -47,6 +48,7 @@ REST_FRAMEWORK = {
 }
 
 REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'userprofile.serializers.UserSerializer',
     # 'LOGIN_SERIALIZER': '',
     # 'REGISTER_SERIALIZER': '',
 }
