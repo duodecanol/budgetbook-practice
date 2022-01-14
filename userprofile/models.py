@@ -30,6 +30,7 @@ class User(AbstractUser):
     rrn = models.CharField(_('Resident Registration Number'), max_length=63, null=True, blank=True)
     country_of_origin = models.CharField(_('User country of origin'),  max_length=255, null=True, blank=True)
     location = models.CharField(_('User location'),  max_length=255, null=True, blank=True)
+    is_deleted = models.BooleanField(_('User is deleted'), default=False)
     # TODO: Reference Models
     # default_currency = models.CharField(_('Default Currency'),  max_length=3, null=True, blank=True)
     # user_assets =
