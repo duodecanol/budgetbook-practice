@@ -1,15 +1,9 @@
 
-from rest_framework import viewsets, generics
+from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.response import Response
 
-from rest_framework.views import APIView
-
-from .models.assets import Asset, BankAccount, Cash, CreditCard
-from .models.currency import Currency
-from .models.categories import Category
-from .models.transaction import Transaction
-from budgetbook.serializers import *
+from api.v1.serializers import *
 
 
 class BankAccountViewSet(viewsets.ModelViewSet):

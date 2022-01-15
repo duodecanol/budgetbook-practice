@@ -78,6 +78,8 @@ INSTALLED_APPS = [
     # Custom apps
     'userprofile',
     'budgetbook',
+    'api.v1',
+
 ]
 
 MIDDLEWARE = [

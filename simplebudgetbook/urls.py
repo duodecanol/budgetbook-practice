@@ -24,5 +24,5 @@ urlpatterns = [
 
     # path('account/', include('allauth.urls')),
     # api list
-    path('api/', include('budgetbook.urls')),
+    path('api/v1/', include('api.v1.urls')),
 ]

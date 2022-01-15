@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from .models.assets import (Asset, BankAccount, Cash, CreditCard)
-from .models.currency import Currency
-from .models.categories import Category
-from .models.transaction import Transaction
+from budgetbook.models.assets import (Asset, BankAccount, Cash, CreditCard)
+from budgetbook.models.currency import Currency
+from budgetbook.models.categories import Category
+from budgetbook.models.transaction import Transaction
 
 
 class AssetSerializer(serializers.ModelSerializer):
