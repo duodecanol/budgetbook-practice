@@ -28,7 +28,7 @@ class User(AbstractUser):
     photo = models.ImageField(_('User Photo'), upload_to='users/photos', null=True, blank=True)
     date_of_birth = models.DateField(_('Date of birth'), null=True, blank=True)
     mobile_number = models.CharField(_('User mobile phone number'),  max_length=15, null=True, blank=True)
-    rrn = models.CharField(_('Resident Registration Number'), max_length=63, null=True, blank=True)
+    rrn = models.CharField(_('Resident Registration Number'), max_length=63, null=True, blank=True, unique=True)
     country_of_origin = models.CharField(_('User country of origin'),  max_length=255, null=True, blank=True)
     location = models.CharField(_('User location'),  max_length=255, null=True, blank=True)
     is_deleted = models.BooleanField(_('User is deleted'), default=False)

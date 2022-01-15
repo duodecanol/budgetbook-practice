@@ -26,7 +26,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"]  # FIXME: Production 환경에서 변경 필요
+
+# CORS_ORIGIN_ALLOW_ALL, CORS_ORIGIN_WHITELIST  # TODO: open CORS later
 
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -64,6 +66,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_extensions',
     # DjangoRestFramework
     'rest_framework',
     'rest_framework.authtoken',
