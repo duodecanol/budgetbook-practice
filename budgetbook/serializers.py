@@ -37,7 +37,7 @@ class BankAccountSerializer(serializers.ModelSerializer):
             'account_number',
             'owner',
             'transactions',
-            ]
+        ]
 
 
 class CashSerializer(serializers.ModelSerializer):

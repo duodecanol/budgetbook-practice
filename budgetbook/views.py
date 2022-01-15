@@ -18,7 +18,8 @@ class BankAccountViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return BankAccount.objects.filter(owner=self.request.user).order_by('create_date')
+        user = self.request.user
+        return BankAccount.objects.filter(owner=user).order_by('create_date')
 
 
 class CashViewSet(viewsets.ModelViewSet):
@@ -27,7 +28,8 @@ class CashViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Cash.objects.filter(owner=self.request.user).order_by('create_date')
+        user = self.request.user
+        return Cash.objects.filter(owner=user).order_by('create_date')
 
 
 class CreditCardViewSet(viewsets.ModelViewSet):
@@ -36,7 +38,8 @@ class CreditCardViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return CreditCard.objects.filter(owner=self.request.user).order_by('create_date')
+        user = self.request.user
+        return CreditCard.objects.filter(owner=user).order_by('create_date')
 
 
 class AssetViewSet(viewsets.ModelViewSet):
@@ -60,7 +63,10 @@ class TransactionViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Transaction.objects.all().order_by('create_date')
+        # payment_method가 asset을 참조하므로 그 소유자인 owner가 user와 일치하는 결과만을 보여준다.
+        user = self.request.user
+        return Transaction.objects.all().filter(payment_method__owner=user).order_by('create_date')
+        # return Transaction.objects.all().order_by('create_date')
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
