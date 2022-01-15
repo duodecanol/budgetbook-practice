@@ -13,6 +13,11 @@ class BankAccountViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        if user.is_anonymous:
+            return BankAccount.objects.none()
+        elif user.is_superuser:  # 관리자는 모든 결과를 볼 수 있다.
+            return BankAccount.objects.all().order_by('create_date')
+
         return BankAccount.objects.filter(owner=user).order_by('create_date')
 
 
@@ -23,6 +28,11 @@ class CashViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        if user.is_anonymous:
+            return Cash.objects.none()
+        elif user.is_superuser:  # 관리자는 모든 결과를 볼 수 있다.
+            return Cash.objects.all().order_by('create_date')
+
         return Cash.objects.filter(owner=user).order_by('create_date')
 
 
@@ -33,6 +43,11 @@ class CreditCardViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        if user.is_anonymous:
+            return CreditCard.objects.none()
+        elif user.is_superuser:  # 관리자는 모든 결과를 볼 수 있다.
+            return CreditCard.objects.all().order_by('create_date')
+
         return CreditCard.objects.filter(owner=user).order_by('create_date')
 
 
@@ -43,6 +58,11 @@ class AssetViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+        if user.is_anonymous:
+            return Asset.objects.none()
+        elif user.is_superuser:  # 관리자는 모든 결과를 볼 수 있다.
+            return Asset.objects.all().order_by('create_date')
+
         # Model assets에 InheritanceManager가 object를 관리하여 서브클래스 선택이 가능하도록 함.
         return Asset.objects.filter(owner=user).select_subclasses()  # Filtering by Model Object
         # return Asset.objects.raw("SELECT * FROM budgetbook_asset WHERE owner_id = %s", [user.pk])
@@ -59,27 +79,37 @@ class TransactionViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         # payment_method가 asset을 참조하므로 그 소유자인 owner가 user와 일치하는 결과만을 보여준다.
         user = self.request.user
+        if user.is_anonymous:
+            return Transaction.objects.none()
+        elif user.is_superuser:  # 관리자는 모든 결과를 볼 수 있다.
+            return Transaction.objects.all().order_by('create_date')
+
         return Transaction.objects.all().filter(payment_method__owner=user).order_by('create_date')
-        # return Transaction.objects.all().order_by('create_date')
+
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
 
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
+        if self.request.user.is_anonymous:
+            return Category.objects.none()
+
         return Category.objects.all()
 
 
 class CurrencyViewSet(viewsets.ModelViewSet):
 
     serializer_class = CurrencySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
-        return Currency.objects.all()
+        if self.request.user.is_anonymous:
+            return Currency.objects.none()
 
+        return Currency.objects.all()
 
 
 ## TRASH

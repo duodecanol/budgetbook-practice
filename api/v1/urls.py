@@ -8,8 +8,8 @@ router.register(r'user/bankaccounts', views.BankAccountViewSet, basename='bankac
 router.register(r'user/cashes', views.CashViewSet, basename='cash')
 router.register(r'user/cards', views.CreditCardViewSet, basename='card')
 router.register(r'user/transactions', views.TransactionViewSet, basename='transaction')
-router.register(r'user/categories', views.CategoryViewSet, basename='category')
-router.register(r'user/currencies', views.CurrencyViewSet, basename='currency')
+router.register(r'categories', views.CategoryViewSet, basename='category')
+router.register(r'currencies', views.CurrencyViewSet, basename='currency')
 """
 admin/assets
 admin/assets/<pk>
