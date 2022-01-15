@@ -6,11 +6,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models.assets import Asset, BankAccount, Cash, CreditCard
-from .serializers import AssetSerializer, AssetDetailsSerializer, BankAccountSerializer, CashSerializer, \
-    CreditCardSerializer, AssetYetAnotherSerializer
+from .models.currency import Currency
+from .models.categories import Category
+from .models.transaction import Transaction
+from budgetbook.serializers import *
 
 
-class UserBankAccountViewSet(viewsets.ModelViewSet):
+class BankAccountViewSet(viewsets.ModelViewSet):
 
     serializer_class = BankAccountSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -19,7 +21,7 @@ class UserBankAccountViewSet(viewsets.ModelViewSet):
         return BankAccount.objects.filter(owner=self.request.user).order_by('create_date')
 
 
-class UserCashViewSet(viewsets.ModelViewSet):
+class CashViewSet(viewsets.ModelViewSet):
 
     serializer_class = CashSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -28,7 +30,7 @@ class UserCashViewSet(viewsets.ModelViewSet):
         return Cash.objects.filter(owner=self.request.user).order_by('create_date')
 
 
-class UserCreditCardViewSet(viewsets.ModelViewSet):
+class CreditCardViewSet(viewsets.ModelViewSet):
 
     serializer_class = CreditCardSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -37,33 +39,46 @@ class UserCreditCardViewSet(viewsets.ModelViewSet):
         return CreditCard.objects.filter(owner=self.request.user).order_by('create_date')
 
 
-class AssetList(viewsets.ModelViewSet):
-    # queryset = Asset.objects.all().filter(owner=request.Request.user)
+class AssetViewSet(viewsets.ModelViewSet):
+
     serializer_class = AssetSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
-        Asset.objects.select_subclasses()
-        return Asset.objects.filter(owner=user)  # Filtering by Model Object
+        # Model assets에 InheritanceManager가 object를 관리하여 서브클래스 선택이 가능하도록 함.
+        return Asset.objects.filter(owner=user).select_subclasses()  # Filtering by Model Object
         # return Asset.objects.raw("SELECT * FROM budgetbook_asset WHERE owner_id = %s", [user.pk])
 
     # def perform_create(self, serializer):
     #     serializer.data.owner = self.request.user
     #     super(AssetViewSet, self).perform_create(serializer)
 
-class AssetYetAnotherViewSet(viewsets.ModelViewSet):
-    serializer_class = AssetYetAnotherSerializer
-    queryset = Asset.objects.all()
+class TransactionViewSet(viewsets.ModelViewSet):
 
-class AssetSubClassFieldsMixin(object):
+    serializer_class = TransactionSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Asset.objects.select_subclasses()
+        return Transaction.objects.all().order_by('create_date')
 
 
-class RetrieveAssetAPIView(AssetSubClassFieldsMixin, generics.RetrieveDestroyAPIView):
-    serializer_class = AssetSerializer
+class CategoryViewSet(viewsets.ModelViewSet):
+
+    serializer_class = CategorySerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Category.objects.all()
+
+
+class CurrencyViewSet(viewsets.ModelViewSet):
+
+    serializer_class = CurrencySerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Currency.objects.all()
 
 
 

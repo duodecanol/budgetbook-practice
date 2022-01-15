@@ -4,11 +4,13 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'test/assets', views.AssetYetAnotherViewSet, basename='yassets')
-router.register(r'user/assets', views.AssetList, basename='assets')
-router.register(r'user/bankaccounts', views.UserBankAccountViewSet, basename='bankaccount')
-router.register(r'user/cashes', views.UserCashViewSet, basename='cash')
-router.register(r'user/cards', views.UserCreditCardViewSet, basename='card')
+router.register(r'user/assets', views.AssetViewSet, basename='asset')
+router.register(r'user/bankaccounts', views.BankAccountViewSet, basename='bankaccount')
+router.register(r'user/cashes', views.CashViewSet, basename='cash')
+router.register(r'user/cards', views.CreditCardViewSet, basename='card')
+router.register(r'user/transactions', views.TransactionViewSet, basename='transaction')
+router.register(r'user/categories', views.CategoryViewSet, basename='category')
+router.register(r'user/currencies', views.CurrencyViewSet, basename='currency')
 """
 admin/assets
 admin/assets/<pk>
@@ -20,7 +22,7 @@ user/cash
 urlpatterns = [
     path('', include(router.urls)),
     # url(r'^assets/(?P<pk>[0-9]+)$', views.RetrieveAssetAPIView.as_view(), name='full-list')
-    path('assets/<pk>', views.RetrieveAssetAPIView.as_view(), name='full-list')
+    # path('assets/<pk>', views.RetrieveAssetAPIView.as_view(), name='full-list')
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 

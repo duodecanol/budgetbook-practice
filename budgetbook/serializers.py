@@ -1,6 +1,9 @@
 from rest_framework import serializers
 
 from .models.assets import (Asset, BankAccount, Cash, CreditCard)
+from .models.currency import Currency
+from .models.categories import Category
+from .models.transaction import Transaction
 
 
 class AssetSerializer(serializers.ModelSerializer):
@@ -17,16 +20,24 @@ class AssetSerializer(serializers.ModelSerializer):
         model = Asset
         fields = '__all__'
 
-class AssetYetAnotherSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Asset
-        fields = '__all__'
 
 class BankAccountSerializer(serializers.ModelSerializer):
+    transactions = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='transaction-detail'
+    )
+
     class Meta:
         model = BankAccount
-        fields = '__all__'
+        fields = [
+            'name',
+            'bank_name',
+            'currency',
+            'account_number',
+            'owner',
+            'transactions',
+            ]
 
 
 class CashSerializer(serializers.ModelSerializer):
@@ -41,11 +52,22 @@ class CreditCardSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class AssetDetailsSerializer(serializers.ModelSerializer):
-    bank_account = BankAccountSerializer()
-    credit_card = CreditCardSerializer()
-    cash = CashSerializer()
-
+class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Asset
-        fields = ['pk']
+        model = Transaction
+        fields = '__all__'
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
+
+class CurrencySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Currency
+        fields = '__all__'
+
+
+

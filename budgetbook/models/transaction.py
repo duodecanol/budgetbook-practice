@@ -22,6 +22,7 @@ class Transaction(models.Model):
                                          default=TransactionClassification.EXPENSE)
     currency = models.ForeignKey(Currency, verbose_name=_('currency'),
                                  related_name='transactions',
+                                 default=85, #FIXME: production에서는 none
                                  on_delete=models.PROTECT)
     seller = models.CharField(_('seller name'), max_length=127, help_text='거래처명. 거래한 업체의 상호명 개인의 이름 등')
     transaction_datetime = models.DateTimeField(_('datetime of transaction'), null=True)

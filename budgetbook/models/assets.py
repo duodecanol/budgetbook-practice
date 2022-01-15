@@ -41,6 +41,7 @@ class Cash(Asset):
 class CreditCard(Asset):
 
     card_company_name = models.CharField(_('card company name'), max_length=255)
+    #TODO: card number attr+
     currency = models.ForeignKey(Currency, related_name='creditcards', on_delete=models.CASCADE)
     credit_limit = models.DecimalField(_('credit limit'),
                                        decimal_places=4, max_digits=65,

@@ -16,8 +16,6 @@ class Category(models.Model):
     초기 버전에서는 고정된 카테고리 항목을 제공하고
     추후에 유저에 따라 Customize된 카테고리 항목을 가질 수 있도록 한다.
     """
-
-
     name = models.CharField('category name', max_length=128, null=False, blank=False)
     parent = models.ForeignKey('self', related_name='subcategory',
                                null=True, blank=True,
