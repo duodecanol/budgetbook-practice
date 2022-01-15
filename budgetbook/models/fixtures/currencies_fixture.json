@@ -1,0 +1,1605 @@
+[
+    {
+        "model": "budgetbook.currency",
+        "pk": 1,
+        "fields": {
+            "name": "Euro",
+            "code": "EUR",
+            "sign": "\u20ac"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 2,
+        "fields": {
+            "name": "Swiss Franc",
+            "code": "CHF",
+            "sign": "CHF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 3,
+        "fields": {
+            "name": "Hungarian forint",
+            "code": "HUF",
+            "sign": "Ft"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 4,
+        "fields": {
+            "name": "Thai baht",
+            "code": "THB",
+            "sign": "\u0e3f"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 5,
+        "fields": {
+            "name": "Malaysian ringgit",
+            "code": "MYR",
+            "sign": "MYR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 6,
+        "fields": {
+            "name": "Philippine piso",
+            "code": "PHP",
+            "sign": "PHP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 7,
+        "fields": {
+            "name": "United States dollar",
+            "code": "USD",
+            "sign": "$"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 8,
+        "fields": {
+            "name": "Japanese yen",
+            "code": "JPY",
+            "sign": "\u00a5"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 9,
+        "fields": {
+            "name": "Pound sterling",
+            "code": "GBP",
+            "sign": "\u00a3"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 10,
+        "fields": {
+            "name": "Bitcoin",
+            "code": "BTC",
+            "sign": "BTC"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 11,
+        "fields": {
+            "name": "United Arab Emirates dirham",
+            "code": "AED",
+            "sign": "AED"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 12,
+        "fields": {
+            "name": "Afghan afghani",
+            "code": "AFN",
+            "sign": "AFN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 13,
+        "fields": {
+            "name": "Albanian lek",
+            "code": "ALL",
+            "sign": "ALL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 14,
+        "fields": {
+            "name": "Armenian dram",
+            "code": "AMD",
+            "sign": "AMD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 15,
+        "fields": {
+            "name": "Netherlands Antillean guilder",
+            "code": "ANG",
+            "sign": "ANG"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 16,
+        "fields": {
+            "name": "Angolan kwanza",
+            "code": "AOA",
+            "sign": "AOA"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 17,
+        "fields": {
+            "name": "Argentine peso",
+            "code": "ARS",
+            "sign": "ARS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 18,
+        "fields": {
+            "name": "Australian dollar",
+            "code": "AUD",
+            "sign": "AUD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 19,
+        "fields": {
+            "name": "Aruban florin",
+            "code": "AWG",
+            "sign": "AWG"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 20,
+        "fields": {
+            "name": "Azerbaijani manat",
+            "code": "AZN",
+            "sign": "AZN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 21,
+        "fields": {
+            "name": "Bosnia and Herzegovina convertible mark",
+            "code": "BAM",
+            "sign": "BAM"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 22,
+        "fields": {
+            "name": "Barbados dollar",
+            "code": "BBD",
+            "sign": "BBD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 23,
+        "fields": {
+            "name": "Bangladeshi taka",
+            "code": "BDT",
+            "sign": "BDT"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 24,
+        "fields": {
+            "name": "Bulgarian lev",
+            "code": "BGN",
+            "sign": "BGN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 25,
+        "fields": {
+            "name": "Bahraini dinar",
+            "code": "BHD",
+            "sign": "BHD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 26,
+        "fields": {
+            "name": "Burundian franc",
+            "code": "BIF",
+            "sign": "BIF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 27,
+        "fields": {
+            "name": "Bermudian dollar",
+            "code": "BMD",
+            "sign": "BMD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 28,
+        "fields": {
+            "name": "Brunei dollar",
+            "code": "BND",
+            "sign": "BND"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 29,
+        "fields": {
+            "name": "Boliviano",
+            "code": "BOB",
+            "sign": "BOB"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 30,
+        "fields": {
+            "name": "Bolivian Mvdol (funds code)",
+            "code": "BOV",
+            "sign": "BOV"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 31,
+        "fields": {
+            "name": "Brazilian real",
+            "code": "BRL",
+            "sign": "BRL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 32,
+        "fields": {
+            "name": "Bahamian dollar",
+            "code": "BSD",
+            "sign": "BSD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 33,
+        "fields": {
+            "name": "Bhutanese ngultrum",
+            "code": "BTN",
+            "sign": "BTN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 34,
+        "fields": {
+            "name": "Botswana pula",
+            "code": "BWP",
+            "sign": "BWP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 35,
+        "fields": {
+            "name": "Belarusian ruble",
+            "code": "BYN",
+            "sign": "BYN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 36,
+        "fields": {
+            "name": "Belize dollar",
+            "code": "BZD",
+            "sign": "BZD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 37,
+        "fields": {
+            "name": "Canadian dollar",
+            "code": "CAD",
+            "sign": "CAD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 38,
+        "fields": {
+            "name": "Congolese franc",
+            "code": "CDF",
+            "sign": "CDF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 39,
+        "fields": {
+            "name": "WIR Euro (complementary currency)",
+            "code": "CHE",
+            "sign": "CHE"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 40,
+        "fields": {
+            "name": "WIR Franc (complementary currency)",
+            "code": "CHW",
+            "sign": "CHW"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 41,
+        "fields": {
+            "name": "Unidad de Fomento (funds code)",
+            "code": "CLF",
+            "sign": "CLF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 42,
+        "fields": {
+            "name": "Chilean peso",
+            "code": "CLP",
+            "sign": "CLP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 43,
+        "fields": {
+            "name": "Chinese yuan",
+            "code": "CNY",
+            "sign": "CNY"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 44,
+        "fields": {
+            "name": "Colombian peso",
+            "code": "COP",
+            "sign": "COP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 45,
+        "fields": {
+            "name": "Unidad de Valor Real (UVR) (funds code)[7]",
+            "code": "COU",
+            "sign": "COU"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 46,
+        "fields": {
+            "name": "Costa Rican colon",
+            "code": "CRC",
+            "sign": "CRC"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 47,
+        "fields": {
+            "name": "Cuban convertible peso",
+            "code": "CUC",
+            "sign": "CUC"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 48,
+        "fields": {
+            "name": "Cuban peso",
+            "code": "CUP",
+            "sign": "CUP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 49,
+        "fields": {
+            "name": "Cape Verde escudo",
+            "code": "CVE",
+            "sign": "CVE"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 50,
+        "fields": {
+            "name": "Czech koruna",
+            "code": "CZK",
+            "sign": "CZK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 51,
+        "fields": {
+            "name": "Djiboutian franc",
+            "code": "DJF",
+            "sign": "DJF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 52,
+        "fields": {
+            "name": "Danish krone",
+            "code": "DKK",
+            "sign": "DKK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 53,
+        "fields": {
+            "name": "Dominican peso",
+            "code": "DOP",
+            "sign": "DOP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 54,
+        "fields": {
+            "name": "Algerian dinar",
+            "code": "DZD",
+            "sign": "DZD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 55,
+        "fields": {
+            "name": "Egyptian pound",
+            "code": "EGP",
+            "sign": "EGP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 56,
+        "fields": {
+            "name": "Eritrean nakfa",
+            "code": "ERN",
+            "sign": "ERN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 57,
+        "fields": {
+            "name": "Ethiopian birr",
+            "code": "ETB",
+            "sign": "ETB"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 58,
+        "fields": {
+            "name": "Fiji dollar",
+            "code": "FJD",
+            "sign": "FJD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 59,
+        "fields": {
+            "name": "Falkland Islands pound",
+            "code": "FKP",
+            "sign": "FKP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 61,
+        "fields": {
+            "name": "Georgian lari",
+            "code": "GEL",
+            "sign": "GEL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 62,
+        "fields": {
+            "name": "Ghanaian cedi",
+            "code": "GHS",
+            "sign": "GHS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 63,
+        "fields": {
+            "name": "Gibraltar pound",
+            "code": "GIP",
+            "sign": "GIP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 64,
+        "fields": {
+            "name": "Gambian dalasi",
+            "code": "GMD",
+            "sign": "GMD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 65,
+        "fields": {
+            "name": "Guinean franc",
+            "code": "GNF",
+            "sign": "GNF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 66,
+        "fields": {
+            "name": "Guatemalan quetzal",
+            "code": "GTQ",
+            "sign": "GTQ"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 67,
+        "fields": {
+            "name": "Guyanese dollar",
+            "code": "GYD",
+            "sign": "GYD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 68,
+        "fields": {
+            "name": "Hong Kong dollar",
+            "code": "HKD",
+            "sign": "HKD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 69,
+        "fields": {
+            "name": "Honduran lempira",
+            "code": "HNL",
+            "sign": "HNL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 70,
+        "fields": {
+            "name": "Croatian kuna",
+            "code": "HRK",
+            "sign": "HRK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 71,
+        "fields": {
+            "name": "Haitian gourde",
+            "code": "HTG",
+            "sign": "HTG"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 72,
+        "fields": {
+            "name": "Indonesian rupiah",
+            "code": "IDR",
+            "sign": "IDR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 73,
+        "fields": {
+            "name": "Israeli new shekel",
+            "code": "ILS",
+            "sign": "ILS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 74,
+        "fields": {
+            "name": "Indian rupee",
+            "code": "INR",
+            "sign": "INR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 75,
+        "fields": {
+            "name": "Iraqi dinar",
+            "code": "IQD",
+            "sign": "IQD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 76,
+        "fields": {
+            "name": "Iranian rial",
+            "code": "IRR",
+            "sign": "IRR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 77,
+        "fields": {
+            "name": "Icelandic kr\u00f3na",
+            "code": "ISK",
+            "sign": "ISK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 78,
+        "fields": {
+            "name": "Jamaican dollar",
+            "code": "JMD",
+            "sign": "JMD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 79,
+        "fields": {
+            "name": "Jordanian dinar",
+            "code": "JOD",
+            "sign": "JOD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 80,
+        "fields": {
+            "name": "Kenyan shilling",
+            "code": "KES",
+            "sign": "KES"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 81,
+        "fields": {
+            "name": "Kyrgyzstani som",
+            "code": "KGS",
+            "sign": "KGS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 82,
+        "fields": {
+            "name": "Cambodian riel",
+            "code": "KHR",
+            "sign": "KHR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 83,
+        "fields": {
+            "name": "Comoro franc",
+            "code": "KMF",
+            "sign": "KMF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 84,
+        "fields": {
+            "name": "North Korean won",
+            "code": "KPW",
+            "sign": "KPW"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 85,
+        "fields": {
+            "name": "South Korean won",
+            "code": "KRW",
+            "sign": "₩"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 86,
+        "fields": {
+            "name": "Kuwaiti dinar",
+            "code": "KWD",
+            "sign": "KWD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 87,
+        "fields": {
+            "name": "Cayman Islands dollar",
+            "code": "KYD",
+            "sign": "KYD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 88,
+        "fields": {
+            "name": "Kazakhstani tenge",
+            "code": "KZT",
+            "sign": "KZT"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 89,
+        "fields": {
+            "name": "Lao kip",
+            "code": "LAK",
+            "sign": "LAK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 90,
+        "fields": {
+            "name": "Lebanese pound",
+            "code": "LBP",
+            "sign": "LBP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 91,
+        "fields": {
+            "name": "Sri Lankan rupee",
+            "code": "LKR",
+            "sign": "LKR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 92,
+        "fields": {
+            "name": "Liberian dollar",
+            "code": "LRD",
+            "sign": "LRD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 93,
+        "fields": {
+            "name": "Lesotho loti",
+            "code": "LSL",
+            "sign": "LSL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 94,
+        "fields": {
+            "name": "Libyan dinar",
+            "code": "LYD",
+            "sign": "LYD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 95,
+        "fields": {
+            "name": "Moroccan dirham",
+            "code": "MAD",
+            "sign": "MAD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 96,
+        "fields": {
+            "name": "Moldovan leu",
+            "code": "MDL",
+            "sign": "MDL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 97,
+        "fields": {
+            "name": "Malagasy ariary",
+            "code": "MGA",
+            "sign": "MGA"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 98,
+        "fields": {
+            "name": "Macedonian denar",
+            "code": "MKD",
+            "sign": "MKD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 99,
+        "fields": {
+            "name": "Myanmar kyat",
+            "code": "MMK",
+            "sign": "MMK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 100,
+        "fields": {
+            "name": "Mongolian t\u00f6gr\u00f6g",
+            "code": "MNT",
+            "sign": "MNT"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 101,
+        "fields": {
+            "name": "Macanese pataca",
+            "code": "MOP",
+            "sign": "MOP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 102,
+        "fields": {
+            "name": "Mauritanian ouguiya",
+            "code": "MRO",
+            "sign": "MRO"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 103,
+        "fields": {
+            "name": "Mauritian rupee",
+            "code": "MUR",
+            "sign": "MUR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 104,
+        "fields": {
+            "name": "Maldivian rufiyaa",
+            "code": "MVR",
+            "sign": "MVR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 105,
+        "fields": {
+            "name": "Malawian kwacha",
+            "code": "MWK",
+            "sign": "MWK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 106,
+        "fields": {
+            "name": "Mexican peso",
+            "code": "MXN",
+            "sign": "MXN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 107,
+        "fields": {
+            "name": "Mexican Unidad de Inversion (UDI) (funds code)",
+            "code": "MXV",
+            "sign": "MXV"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 108,
+        "fields": {
+            "name": "Mozambican metical",
+            "code": "MZN",
+            "sign": "MZN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 109,
+        "fields": {
+            "name": "Namibian dollar",
+            "code": "NAD",
+            "sign": "NAD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 110,
+        "fields": {
+            "name": "Nigerian naira",
+            "code": "NGN",
+            "sign": "NGN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 111,
+        "fields": {
+            "name": "Nicaraguan c\u00f3rdoba",
+            "code": "NIO",
+            "sign": "NIO"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 112,
+        "fields": {
+            "name": "Norwegian krone",
+            "code": "NOK",
+            "sign": "NOK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 113,
+        "fields": {
+            "name": "Nepalese rupee",
+            "code": "NPR",
+            "sign": "NPR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 114,
+        "fields": {
+            "name": "New Zealand dollar",
+            "code": "NZD",
+            "sign": "NZD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 115,
+        "fields": {
+            "name": "Omani rial",
+            "code": "OMR",
+            "sign": "OMR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 116,
+        "fields": {
+            "name": "Panamanian balboa",
+            "code": "PAB",
+            "sign": "PAB"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 117,
+        "fields": {
+            "name": "Peruvian Sol",
+            "code": "PEN",
+            "sign": "PEN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 118,
+        "fields": {
+            "name": "Papua New Guinean kina",
+            "code": "PGK",
+            "sign": "PGK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 119,
+        "fields": {
+            "name": "Pakistani rupee",
+            "code": "PKR",
+            "sign": "PKR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 120,
+        "fields": {
+            "name": "Polish z\u0142oty",
+            "code": "PLN",
+            "sign": "PLN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 121,
+        "fields": {
+            "name": "Paraguayan guaran\u00ed",
+            "code": "PYG",
+            "sign": "PYG"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 122,
+        "fields": {
+            "name": "Qatari riyal",
+            "code": "QAR",
+            "sign": "QAR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 123,
+        "fields": {
+            "name": "Romanian leu",
+            "code": "RON",
+            "sign": "RON"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 124,
+        "fields": {
+            "name": "Serbian dinar",
+            "code": "RSD",
+            "sign": "RSD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 125,
+        "fields": {
+            "name": "Russian ruble",
+            "code": "RUB",
+            "sign": "RUB"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 126,
+        "fields": {
+            "name": "Rwandan franc",
+            "code": "RWF",
+            "sign": "RWF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 127,
+        "fields": {
+            "name": "Saudi riyal",
+            "code": "SAR",
+            "sign": "SAR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 128,
+        "fields": {
+            "name": "Solomon Islands dollar",
+            "code": "SBD",
+            "sign": "SBD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 129,
+        "fields": {
+            "name": "Seychelles rupee",
+            "code": "SCR",
+            "sign": "SCR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 130,
+        "fields": {
+            "name": "Sudanese pound",
+            "code": "SDG",
+            "sign": "SDG"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 131,
+        "fields": {
+            "name": "Swedish krona/kronor",
+            "code": "SEK",
+            "sign": "SEK"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 132,
+        "fields": {
+            "name": "Singapore dollar",
+            "code": "SGD",
+            "sign": "SGD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 133,
+        "fields": {
+            "name": "Saint Helena pound",
+            "code": "SHP",
+            "sign": "SHP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 134,
+        "fields": {
+            "name": "Sierra Leonean leone",
+            "code": "SLL",
+            "sign": "SLL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 135,
+        "fields": {
+            "name": "Somali shilling",
+            "code": "SOS",
+            "sign": "SOS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 136,
+        "fields": {
+            "name": "Surinamese dollar",
+            "code": "SRD",
+            "sign": "SRD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 137,
+        "fields": {
+            "name": "South Sudanese pound",
+            "code": "SSP",
+            "sign": "SSP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 138,
+        "fields": {
+            "name": "S\u00e3o Tom\u00e9 and Pr\u00edncipe dobra",
+            "code": "STD",
+            "sign": "STD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 139,
+        "fields": {
+            "name": "Salvadoran col\u00f3n",
+            "code": "SVC",
+            "sign": "SVC"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 140,
+        "fields": {
+            "name": "Syrian pound",
+            "code": "SYP",
+            "sign": "SYP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 141,
+        "fields": {
+            "name": "Swazi lilangeni",
+            "code": "SZL",
+            "sign": "SZL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 142,
+        "fields": {
+            "name": "Tajikistani somoni",
+            "code": "TJS",
+            "sign": "TJS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 143,
+        "fields": {
+            "name": "Turkmenistan manat",
+            "code": "TMT",
+            "sign": "TMT"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 144,
+        "fields": {
+            "name": "Tunisian dinar",
+            "code": "TND",
+            "sign": "TND"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 145,
+        "fields": {
+            "name": "Tongan pa\u02bbanga",
+            "code": "TOP",
+            "sign": "TOP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 146,
+        "fields": {
+            "name": "Turkish lira",
+            "code": "TRY",
+            "sign": "TRY"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 147,
+        "fields": {
+            "name": "Trinidad and Tobago dollar",
+            "code": "TTD",
+            "sign": "TTD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 148,
+        "fields": {
+            "name": "New Taiwan dollar",
+            "code": "TWD",
+            "sign": "TWD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 149,
+        "fields": {
+            "name": "Tanzanian shilling",
+            "code": "TZS",
+            "sign": "TZS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 150,
+        "fields": {
+            "name": "Ukrainian hryvnia",
+            "code": "UAH",
+            "sign": "UAH"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 151,
+        "fields": {
+            "name": "Ugandan shilling",
+            "code": "UGX",
+            "sign": "UGX"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 152,
+        "fields": {
+            "name": "United States dollar (next day) (funds code)",
+            "code": "USN",
+            "sign": "USN"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 153,
+        "fields": {
+            "name":
+                "Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)",
+            "code": "UYI",
+            "sign": "UYI"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 154,
+        "fields": {
+            "name": "Uruguayan peso",
+            "code": "UYU",
+            "sign": "UYU"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 155,
+        "fields": {
+            "name": "Uzbekistan som",
+            "code": "UZS",
+            "sign": "UZS"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 156,
+        "fields": {
+            "name": "Venezuelan bol\u00edvar",
+            "code": "VEF",
+            "sign": "VEF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 157,
+        "fields": {
+            "name": "Vietnamese \u0111\u1ed3ng",
+            "code": "VND",
+            "sign": "VND"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 158,
+        "fields": {
+            "name": "Vanuatu vatu",
+            "code": "VUV",
+            "sign": "VUV"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 159,
+        "fields": {
+            "name": "Samoan tala",
+            "code": "WST",
+            "sign": "WST"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 160,
+        "fields": {
+            "name": "CFA franc BEAC",
+            "code": "XAF",
+            "sign": "XAF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 161,
+        "fields": {
+            "name": "East Caribbean dollar",
+            "code": "XCD",
+            "sign": "XCD"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 162,
+        "fields": {
+            "name": "CFA franc BCEAO",
+            "code": "XOF",
+            "sign": "XOF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 163,
+        "fields": {
+            "name": "CFP franc (franc Pacifique)    ",
+            "code": "XPF",
+            "sign": "XPF"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 164,
+        "fields": {
+            "name": "Yemeni rial",
+            "code": "YER",
+            "sign": "YER"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 165,
+        "fields": {
+            "name": "South African rand",
+            "code": "ZAR",
+            "sign": "ZAR"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 166,
+        "fields": {
+            "name": "Zambian kwacha",
+            "code": "ZMW",
+            "sign": "ZMW"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 167,
+        "fields": {
+            "name": "Zimbabwean dollar A/10",
+            "code": "ZWL",
+            "sign": "ZWL"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 168,
+        "fields": {
+            "name": "Ethereum",
+            "code": "ETH",
+            "sign": "ETH"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 169,
+        "fields": {
+            "name": "Dash",
+            "code": "DASH",
+            "sign": "DASH"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 170,
+        "fields": {
+            "name": "Bitcoin Cash",
+            "code": "BTH",
+            "sign": "BTH"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 171,
+        "fields": {
+            "name": "Stellar Lumen",
+            "code": "XLM",
+            "sign": "XLM"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 172,
+        "fields": {
+            "name": "Zcash",
+            "code": "ZEC",
+            "sign": "ZEC"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 173,
+        "fields": {
+            "name": "Ripple",
+            "code": "XRP",
+            "sign": "XRP"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 174,
+        "fields": {
+            "name": "IOTA",
+            "code": "IOT",
+            "sign": "IOT"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 175,
+        "fields": {
+            "name": "Bitcoin Gold",
+            "code": "BTG",
+            "sign": "BTG"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 176,
+        "fields": {
+            "name": "Neo",
+            "code": "NEO",
+            "sign": "NEO"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 177,
+        "fields": {
+            "name": "Ethereum Classic",
+            "code": "ETC",
+            "sign": "ETC"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 178,
+        "fields": {
+            "name": "Litecoin",
+            "code": "LTC",
+            "sign": "LTC"
+        }
+    },
+    {
+        "model": "budgetbook.currency",
+        "pk": 179,
+        "fields": {
+            "name": "OmiseGO",
+            "code": "OMG",
+            "sign": "OMG"
+        }
+    }
+]

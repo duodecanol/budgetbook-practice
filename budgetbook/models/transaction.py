@@ -32,14 +32,16 @@ class Transaction(models.Model):
                                  related_name='transactions',
                                  null=True, blank=True,
                                  on_delete=models.PROTECT)
-    data = models.JSONField(_('additional transaction data'), null=False, blank=False, help_text='추가적인 세부내역/기재사항 등을 저장')
+    data = models.JSONField(_('additional transaction data'),
+                            null=True, blank=True,
+                            help_text='추가적인 세부내역/기재사항 등을 저장')
     create_date = models.DateTimeField(_('created datetime of this item'), auto_now_add=True, editable=False)
     last_modified = models.DateTimeField(_('last modified'), auto_now=True)
     is_active = models.BooleanField(_('is active'), default=True)
     is_deleted = models.BooleanField(_('is deleted'), default=False)
 
     def __str__(self):
-        return f"[{self.pk}], ({self.title}) {self.amount} => {self.data} __ {self.currency}"
+        return f"[{self.pk}] [{self.payment_method.owner}] [{self.payment_method.name}] ({self.title}) {self.amount} __ {self.currency.code}"
 
 
 class WhatsDiffBtwStatusAndTextChoiceField(models.Model):

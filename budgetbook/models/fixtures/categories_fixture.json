@@ -1,0 +1,535 @@
+[
+  {
+    "model": "budgetbook.category",
+    "pk": 0,
+    "fields": {
+      "name": "식비",
+      "parent": null,
+      "description": "식비",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 1,
+    "fields": {
+      "name": "생활",
+      "parent": null,
+      "description": "생활",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 2,
+    "fields": {
+      "name": "온라인쇼핑",
+      "parent": null,
+      "description": "veniam consequat adipisicing deserunt",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 3,
+    "fields": {
+      "name": "주거/통신",
+      "parent": null,
+      "description": "labore qui cillum dolore",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 4,
+    "fields": {
+      "name": "한식",
+      "parent": 0,
+      "description": "amet reprehenderit eiusmod ut",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 5,
+    "fields": {
+      "name": "중식",
+      "parent": 0,
+      "description": "amet reprehenderit eiusmod ut",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 6,
+    "fields": {
+      "name": "일식",
+      "parent": 0,
+      "description": "amet reprehenderit eiusmod ut",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 7,
+    "fields": {
+      "name": "양식",
+      "parent": 0,
+      "description": "amet reprehenderit eiusmod ut",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+  {
+    "model": "budgetbook.category",
+    "pk": 8,
+    "fields": {
+      "name": "치킨",
+      "parent": 0,
+      "description": "amet reprehenderit eiusmod ut",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 9,
+    "fields": {
+      "name": "생필품",
+      "parent": 1,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 10,
+    "fields": {
+      "name": "편의점",
+      "parent": 1,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 11,
+    "fields": {
+      "name": "마트",
+      "parent": 1,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 12,
+    "fields": {
+      "name": "생활서비스",
+      "parent": 1,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 13,
+    "fields": {
+      "name": "가구/가전",
+      "parent": 1,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 14,
+    "fields": {
+      "name": "인터넷쇼핑",
+      "parent": 2,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 15,
+    "fields": {
+      "name": "홈쇼핑",
+      "parent": 2,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 16,
+    "fields": {
+      "name": "결제/충전",
+      "parent": 2,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 17,
+    "fields": {
+      "name": "앱스토어",
+      "parent": 2,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 18,
+    "fields": {
+      "name": "서비스구독",
+      "parent": 2,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 19,
+    "fields": {
+      "name": "휴대폰",
+      "parent": 3,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 20,
+    "fields": {
+      "name": "인터넷",
+      "parent": 3,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 21,
+    "fields": {
+      "name": "월세",
+      "parent": 3,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 22,
+    "fields": {
+      "name": "관리비",
+      "parent": 3,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 23,
+    "fields": {
+      "name": "가스비",
+      "parent": 3,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 24,
+    "fields": {
+      "name": "전기세",
+      "parent": 3,
+      "description": "culpa laboris ut fugiat",
+      "classification": 0,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+
+   {
+    "model": "budgetbook.category",
+    "pk": 25,
+    "fields": {
+      "name": "급여",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 1,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 26,
+    "fields": {
+      "name": "용돈",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 1,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 27,
+    "fields": {
+      "name": "금융수입",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 1,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 28,
+    "fields": {
+      "name": "사업수입",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 1,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 29,
+    "fields": {
+      "name": "기타수입",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 1,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 30,
+    "fields": {
+      "name": "내계좌이체",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 31,
+    "fields": {
+      "name": "이체",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 32,
+    "fields": {
+      "name": "카드대금",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 33,
+    "fields": {
+      "name": "저축",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 34,
+    "fields": {
+      "name": "현금",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 35,
+    "fields": {
+      "name": "투자",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 36,
+    "fields": {
+      "name": "대출",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  },
+   {
+    "model": "budgetbook.category",
+    "pk": 37,
+    "fields": {
+      "name": "보험",
+      "parent": null,
+      "description": "culpa laboris ut fugiat",
+      "classification": 2,
+      "create_date": "2022-01-15T16:07:14.310Z",
+      "last_modified": "2022-01-15T16:07:14.310Z",
+      "is_active": true,
+      "is_deleted": false
+    }
+  }
+]

@@ -3,25 +3,28 @@ from django.contrib.auth import get_user_model
 
 
 User = get_user_model()
-#
-#
+
+
+class TransactionClassification(models.IntegerChoices):
+    EXPENSE = 0
+    INCOME = 1
+    TRANSFER = 2
+
 class Category(models.Model):
     """
     expense / income 항목에 대한 카테고리
     초기 버전에서는 고정된 카테고리 항목을 제공하고
     추후에 유저에 따라 Customize된 카테고리 항목을 가질 수 있도록 한다.
     """
-    class TransactionClassification(models.IntegerChoices):
-        EXPENSE = 0
-        INCOME = 1
-        TRANSFER = 2
+
 
     name = models.CharField('category name', max_length=128, null=False, blank=False)
     parent = models.ForeignKey('self', related_name='subcategory',
-                                  null=True, blank=True,
-                                  on_delete=models.CASCADE)
+                               null=True, blank=True,
+                               on_delete=models.CASCADE)
     description = models.CharField('category description', max_length=255, null=True, blank=True)
-    classification = models.IntegerField('classification for transaction', choices=TransactionClassification.choices,
+    classification = models.IntegerField('classification for transaction',
+                                         choices=TransactionClassification.choices,
                                          default=TransactionClassification.EXPENSE)
     create_date = models.DateTimeField('created datetime', auto_now_add=True, editable=False)
     last_modified = models.DateTimeField('last modified datetime', auto_now=True)
@@ -56,11 +59,10 @@ class Category(models.Model):
         """
         카테고리가 거래내역에 참조되고 있기떄문에 지워지면 안된다.
         """
-        if self.transaction.all():
+        if self.transactions.all():
             self.toggle()
         else:
             self.is_deleted = True
             self.description = ''
             self.save()
-
 

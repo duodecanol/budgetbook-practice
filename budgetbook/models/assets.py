@@ -20,6 +20,8 @@ class Asset(models.Model):
     objects = InheritanceManager()
     # class Meta:
     #     abstract = True
+    def __str__(self):
+        return f"[{self.owner}] {self.name}"
 
 
 class BankAccount(Asset):
@@ -31,7 +33,9 @@ class BankAccount(Asset):
 
 class Cash(Asset):
     currency = models.ForeignKey(Currency, related_name=_('cashes'), on_delete=models.CASCADE)
-    pass
+    class Meta:
+        verbose_name = 'cash'
+        verbose_name_plural = 'cashes'
 
 
 class CreditCard(Asset):
@@ -43,11 +47,11 @@ class CreditCard(Asset):
                                        null=True, blank=True,
                                        help_text=_('The amount of credit you can use to make your purchases'))
     statement_balance = models.DecimalField(_('statement balance'),
-                                        decimal_places=4, max_digits=65,
-                                        null=True, blank=True,
-                                        help_text=_(
-                                'The amount you owe on your credit card as of the latest billing cycle.'
-                               ' It includes any finance charges and late fees.'))
+                            decimal_places=4, max_digits=65,
+                            null=True, blank=True,
+                            help_text=_(
+                            'The amount you owe on your credit card as of the latest billing cycle.'
+                            ' It includes any finance charges and late fees.'))
     outstanding_balance = models.DecimalField(_('outstanding balance'),
                                         decimal_places=4, max_digits=65,
                                         null=True, blank=True,
