@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+from .helpers import SoftDeleteModelMixin
 
 User = get_user_model()
 
@@ -10,7 +11,8 @@ class TransactionClassification(models.IntegerChoices):
     INCOME = 1
     TRANSFER = 2
 
-class Category(models.Model):
+
+class Category(SoftDeleteModelMixin):
     """
     expense / income 항목에 대한 카테고리
     초기 버전에서는 고정된 카테고리 항목을 제공하고
@@ -28,8 +30,6 @@ class Category(models.Model):
     last_modified = models.DateTimeField('last modified datetime', auto_now=True)
     is_active = models.BooleanField('is Active', default=True,
                                     help_text='사용자가 활성화/비활성화를 지정하여 복구할수도 있음')
-    is_deleted = models.BooleanField('is deleted', default=False,
-                                     help_text='사용자가 삭제하면 사용자는 더이상 접근할 수 없음')
 
     class Meta:
         verbose_name = 'Category'
@@ -52,15 +52,4 @@ class Category(models.Model):
             self.disable()
         else:
             self.enable()
-
-    def delete(self):
-        """
-        카테고리가 거래내역에 참조되고 있기떄문에 지워지면 안된다.
-        """
-        if self.transactions.all():
-            self.toggle()
-        else:
-            self.is_deleted = True
-            self.description = ''
-            self.save()
 

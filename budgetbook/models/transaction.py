@@ -7,6 +7,7 @@ from model_utils.fields import StatusField
 from model_utils import Choices
 
 from budgetbook.models import Asset, Currency, Category
+from budgetbook.models.helpers import SoftDeleteModelMixin
 
 
 class Transaction(models.Model):
@@ -32,7 +33,7 @@ class Transaction(models.Model):
     category = models.ForeignKey(Category, verbose_name=_('transaction category'),
                                  related_name='transactions',
                                  null=True, blank=True,
-                                 on_delete=models.PROTECT)
+                                 on_delete=models.SET_NULL)
     data = models.JSONField(_('additional transaction data'),
                             null=True, blank=True,
                             help_text='추가적인 세부내역/기재사항 등을 저장')
@@ -44,20 +45,20 @@ class Transaction(models.Model):
     def __str__(self):
         return f"[{self.pk}] [{self.payment_method.owner}] [{self.payment_method.name}] ({self.title}) {self.amount} __ {self.currency.code}"
 
-
-class WhatsDiffBtwStatusAndTextChoiceField(models.Model):
-    CUSTOM_CHOICES = Choices('borned_remit', 'borned_payin',
-                     'noticed_remit', 'noticed_payin',
-                     'done_remit', 'done_payin')
-    class CustomIntChoice(models.IntegerChoices):
-        EXPENSE = 0
-        INCOME = 1
-        TRANSFER = 2
-    class CustomCharChoice(models.TextChoices):
-        EXPENSE = 'EX', 'Expense'
-        INCOME = 'IN', 'Income'
-        TRANSFER = 'TR', 'Transfer'
-
-    int_choice_field = models.IntegerField(choices=CustomIntChoice.choices)
-    txt_choice_filed = models.CharField(choices=CustomCharChoice.choices, max_length=2, default=CustomCharChoice.EXPENSE)
-    status_filed = StatusField(choices_name='CUSTOM_CHOICES')
+#
+# class WhatsDiffBtwStatusAndTextChoiceField(models.Model):
+#     CUSTOM_CHOICES = Choices('borned_remit', 'borned_payin',
+#                      'noticed_remit', 'noticed_payin',
+#                      'done_remit', 'done_payin')
+#     class CustomIntChoice(models.IntegerChoices):
+#         EXPENSE = 0
+#         INCOME = 1
+#         TRANSFER = 2
+#     class CustomCharChoice(models.TextChoices):
+#         EXPENSE = 'EX', 'Expense'
+#         INCOME = 'IN', 'Income'
+#         TRANSFER = 'TR', 'Transfer'
+#
+#     int_choice_field = models.IntegerField(choices=CustomIntChoice.choices)
+#     txt_choice_filed = models.CharField(choices=CustomCharChoice.choices, max_length=2, default=CustomCharChoice.EXPENSE)
+#     status_filed = StatusField(choices_name='CUSTOM_CHOICES')

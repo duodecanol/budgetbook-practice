@@ -51,11 +51,25 @@ class CreditCardSerializer(serializers.ModelSerializer):
         model = CreditCard
         fields = '__all__'
 
+class UserAssetForeignKey(serializers.PrimaryKeyRelatedField):
+    def get_queryset(self):
+        return Asset.objects.filter(owner=self.context['request'].user)
 
 class TransactionSerializer(serializers.ModelSerializer):
+
+    payment_method = UserAssetForeignKey()
+
     class Meta:
         model = Transaction
-        fields = '__all__'
+        fields = (
+            'id',
+            'title', 'amount', 'currency',
+            'category', 'classification',
+            'seller', 'transaction_datetime',
+            'payment_method', 'last_modified',
+            'data',
+            'is_deleted',
+        )
 
 
 class CategorySerializer(serializers.ModelSerializer):

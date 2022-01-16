@@ -1,7 +1,8 @@
-
+from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 from api.v1.serializers import *
 
@@ -76,6 +77,8 @@ class TransactionViewSet(viewsets.ModelViewSet):
     serializer_class = TransactionSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    #TODO: DELETE 요청시 실제로 데이터가 삭제되지 않도록 구현한다. 현재는 실제로 DB에서 삭제됨.
+
     def get_queryset(self):
         # payment_method가 asset을 참조하므로 그 소유자인 owner가 user와 일치하는 결과만을 보여준다.
         user = self.request.user
@@ -96,8 +99,29 @@ class CategoryViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.is_anonymous:
             return Category.objects.none()
+        elif self.request.user.is_superuser:
+            return Category.all_objects.all()
 
         return Category.objects.all()
+
+    # def retrieve(self, request, *args, **kwargs):
+    #     pass
+
+    # TEST
+    @action(methods=['get'], detail=False, url_name='classification', url_path='classification/(?P<classification>[0-9a-z]+)')
+    def parent(self, request, classification=None):
+        if classification is None:
+            return Response({'message': 'No classification code'})
+        else:
+            queryset = Category.objects.filter(classification=classification)
+        serializer = CategorySerializer(queryset,
+                                        context={'request': request},
+                                        many=True)
+        return Response(serializer.data)
+
+    def destroy(self, request, *args, **kwargs):
+        self.get_object().soft_delete()
+        return {'message': f"category deleted"}
 
 
 class CurrencyViewSet(viewsets.ModelViewSet):
