@@ -19,7 +19,7 @@ class Category(SoftDeleteModelMixin):
     추후에 유저에 따라 Customize된 카테고리 항목을 가질 수 있도록 한다.
     """
     name = models.CharField('category name', max_length=128, null=False, blank=False)
-    parent = models.ForeignKey('self', related_name='subcategory',
+    parent = models.ForeignKey('self', related_name='subcategories',
                                null=True, blank=True,
                                on_delete=models.CASCADE)
     description = models.CharField('category description', max_length=255, null=True, blank=True)
@@ -37,6 +37,11 @@ class Category(SoftDeleteModelMixin):
 
     def __str__(self):
         return f"[{self.parent}] {self.name}" if self.parent else self.name  # TODO: parent id로 이름 참조
+
+    @property
+    def subcategories(self):
+        return self.children.filter(is_active=True)
+
 
     def enable(self):
         """ Enable category status"""

@@ -19,7 +19,6 @@ class Currency(models.Model):
         ordering = ('name', )
         verbose_name = 'Currency'
         verbose_name_plural = 'Currencies'
-        # app_label = 'budgetbook'
 
     def __str__(self):
         return f"{self.name} [{self.code}]"

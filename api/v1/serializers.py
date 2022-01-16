@@ -51,13 +51,17 @@ class CreditCardSerializer(serializers.ModelSerializer):
         model = CreditCard
         fields = '__all__'
 
+
 class UserAssetForeignKey(serializers.PrimaryKeyRelatedField):
     def get_queryset(self):
         return Asset.objects.filter(owner=self.context['request'].user)
 
+
 class TransactionSerializer(serializers.ModelSerializer):
 
-    payment_method = UserAssetForeignKey()
+    # 현재 단계에서는 결제수단 하이퍼링크를 표시하도록.
+    payment_method = serializers.HyperlinkedRelatedField(many=False, read_only=True, view_name='asset-detail')
+    # payment_method = serializers.SlugRelatedField(many=False, read_only=True, slug_field='name')
 
     class Meta:
         model = Transaction
@@ -68,20 +72,35 @@ class TransactionSerializer(serializers.ModelSerializer):
             'seller', 'transaction_datetime',
             'payment_method', 'last_modified',
             'data',
-            'is_deleted',
+            'deleted_at', #TODO: production 전에는 해당필드 감춤.
         )
 
 
 class CategorySerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = (
+            'id',
+            'name', 'description', 'classification',
+            'last_modified', 'is_active',
+            'parent', 'subcategories',
+        )
+
+    def get_fields(self):  # get Recursive subcategories field
+        fields = super(CategorySerializer, self).get_fields()
+        fields['subcategories'] = CategorySerializer(many=True)
+        return fields
 
 
 class CurrencySerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Currency
-        fields = '__all__'
+        fields = (
+            'id', 'name', 'code',
+            'sign', 'favorite',
+        )
 
 
 

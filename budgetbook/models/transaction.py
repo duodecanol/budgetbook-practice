@@ -3,18 +3,19 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext as _
-from model_utils.fields import StatusField
-from model_utils import Choices
+
 
 from budgetbook.models import Asset, Currency, Category
 from budgetbook.models.helpers import SoftDeleteModelMixin
 
 
-class Transaction(models.Model):
-    class TransactionClassification(models.IntegerChoices):
-        EXPENSE = 0
-        INCOME = 1
-        TRANSFER = 2
+class TransactionClassification(models.IntegerChoices):
+    EXPENSE = 0
+    INCOME = 1
+    TRANSFER = 2
+
+
+class Transaction(SoftDeleteModelMixin):
 
     title = models.CharField(_('transaction title'), max_length=127)
     amount = models.DecimalField(_('amount'), decimal_places=4, max_digits=65)
@@ -40,7 +41,6 @@ class Transaction(models.Model):
     create_date = models.DateTimeField(_('created datetime of this item'), auto_now_add=True, editable=False)
     last_modified = models.DateTimeField(_('last modified'), auto_now=True)
     is_active = models.BooleanField(_('is active'), default=True)
-    is_deleted = models.BooleanField(_('is deleted'), default=False)
 
     def __str__(self):
         return f"[{self.pk}] [{self.payment_method.owner}] [{self.payment_method.name}] ({self.title}) {self.amount} __ {self.currency.code}"

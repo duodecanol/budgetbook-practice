@@ -1,8 +1,8 @@
-from django.http import HttpResponseRedirect
 from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.response import Response
-from rest_framework.decorators import action
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 from api.v1.serializers import *
 
@@ -95,6 +95,8 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
     serializer_class = CategorySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['classification', 'name', 'is_active']
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
@@ -107,18 +109,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
     # def retrieve(self, request, *args, **kwargs):
     #     pass
 
-    # TEST
-    @action(methods=['get'], detail=False, url_name='classification', url_path='classification/(?P<classification>[0-9a-z]+)')
-    def parent(self, request, classification=None):
-        if classification is None:
-            return Response({'message': 'No classification code'})
-        else:
-            queryset = Category.objects.filter(classification=classification)
-        serializer = CategorySerializer(queryset,
-                                        context={'request': request},
-                                        many=True)
-        return Response(serializer.data)
-
     def destroy(self, request, *args, **kwargs):
         self.get_object().soft_delete()
         return {'message': f"category deleted"}
@@ -128,13 +118,13 @@ class CurrencyViewSet(viewsets.ModelViewSet):
 
     serializer_class = CurrencySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    http_method_names = ['get', 'options']  # 현재 단계에서는 get만 가능하도록 제한한다.
 
     def get_queryset(self):
         if self.request.user.is_anonymous:
             return Currency.objects.none()
-
-        return Currency.objects.all()
-
+        #TODO: production 에서는 objects.all()
+        return Currency.objects.filter(code__in=['KRW', 'USD', 'JPY', 'CNY', 'EUR', 'BTC', 'GBP'])
 
 ## TRASH
 class RawQueryDjango(viewsets.GenericViewSet):
