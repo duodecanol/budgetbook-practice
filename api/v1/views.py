@@ -85,7 +85,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if user.is_anonymous:
             return Transaction.objects.none()
         elif user.is_superuser:  # 관리자는 모든 결과를 볼 수 있다.
-            return Transaction.objects.all().order_by('create_date')
+            return Transaction.all_objects.all().order_by('create_date')
 
         return Transaction.objects.all().filter(payment_method__owner=user).order_by('create_date')
 
@@ -123,6 +123,8 @@ class CurrencyViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.user.is_anonymous:
             return Currency.objects.none()
+        elif self.request.user.is_superuser:
+            return Currency.objects.all()
         #TODO: production 에서는 objects.all()
         return Currency.objects.filter(code__in=['KRW', 'USD', 'JPY', 'CNY', 'EUR', 'BTC', 'GBP'])
 

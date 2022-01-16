@@ -10,11 +10,11 @@ class AssetSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         if isinstance(instance, BankAccount):
-            return BankAccountSerializer(instance=instance).data
+            return BankAccountSerializer(instance=instance, context={'request': self.context['request']}).data
         elif isinstance(instance, Cash):
-            return CashSerializer(instance=instance).data
+            return CashSerializer(instance=instance, context={'request': self.context['request']}).data
         elif isinstance(instance, CreditCard):
-            return CreditCardSerializer(instance=instance).data
+            return CreditCardSerializer(instance=instance, context={'request': self.context['request']}).data
 
     class Meta:
         model = Asset
