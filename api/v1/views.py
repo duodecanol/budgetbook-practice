@@ -125,9 +125,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
         return Category.objects.all()
 
-    # def retrieve(self, request, *args, **kwargs):
-    #     pass
-
     def destroy(self, request, *args, **kwargs):
         self.get_object().soft_delete()
         return Response({'message': f"category deleted"})

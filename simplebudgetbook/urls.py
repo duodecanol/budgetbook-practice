@@ -19,8 +19,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # User login, registration
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/signup/', include('rest_auth.registration.urls')),
+    path('account/', include('dj_rest_auth.urls')),
+    path('account/signup/', include('dj_rest_auth.registration.urls')),
+    #TODO: 추후 탈퇴 기능 추가
 
     # path('account/', include('allauth.urls')),
     # api list

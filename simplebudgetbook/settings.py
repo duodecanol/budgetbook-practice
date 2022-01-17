@@ -34,32 +34,45 @@ SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # allauth settings
 AUTH_USER_MODEL = 'userprofile.User'
-# EMAIL_REQUIRED = True
-# UNIQUE_EMAIL = True
+
 REST_SESSION_LOGIN = True
-ACCOUNT_EMAIL_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_USER_MODEL_USERNAME_FIELD =None
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ], # TODO: constom userprofile and url
+    ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
     ]
-
 }
 
+# DJ_REST_AUTH Configuration  see: https://dj-rest-auth.readthedocs.io/en/latest/configuration.html
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'userprofile.serializers.UserSerializer',
-    # 'LOGIN_SERIALIZER': '',
-    # 'REGISTER_SERIALIZER': '',
+    'LOGIN_SERIALIZER': 'userprofile.serializers.UserLoginSerializer',
 }
 
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'userprofile.serializers.UserSignUpSerializer',
+}
 
 # Application definition
+#
+AUTHENTICATION_BACKENDS = [
+    # allauth specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # Needed to login by username in Django admin, regardless of allauth
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -76,10 +89,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     # rest-auth | allauth
-    'rest_auth',
+    'dj_rest_auth',
     'allauth',
     'allauth.account',
-    'rest_auth.registration',
+    'dj_rest_auth.registration',
     # Custom apps
     'userprofile',
     'budgetbook',
