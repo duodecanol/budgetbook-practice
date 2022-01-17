@@ -7,11 +7,9 @@ python manage.py collectstatic --noinput  # Collect static files
 python manage.py loaddata budgetbook/models/fixtures/categories_fixture.json
 python manage.py loaddata budgetbook/models/fixtures/currencies_fixture.json
 sleep 1
+
 # test admin
-if [ "$DJANGO_SUPERUSER_USERNAME" ]
-then
-    echo "from django.contrib.auth.models import User; User.objects.create_superuser('$DJANGO_SUPERUSER_USERNAME', '$DJANGO_SUPERUSER_EMAIL', '$DJANGO_SUPERUSER_USERNAME')" | python manage.py shell
-fi
+python manage.py shell < dummy_superuser.py
 
 # # Prepare log files
 touch /gunicorn/logs/access.log
