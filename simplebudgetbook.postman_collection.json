@@ -1,0 +1,707 @@
+{
+	"info": {
+		"_postman_id": "b4164e58-1027-486a-88fd-2d75eb301a03",
+		"name": "simplebudgetbook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "account/signup/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test4@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password1",
+									"value": "xptmxm8899",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "xptmxm8899",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8899/account/signup/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8899",
+							"path": [
+								"account",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/login/ -test1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\")\r",
+									"postman.setGlobalVariable('csrftoken', xsrfCookie.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "{{csrftoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test1@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "xptmxm8899",
+									"type": "text"
+								},
+								{
+									"key": "csrfmiddlewaretoken",
+									"value": "{{csrftoken}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8899/account/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8899",
+							"path": [
+								"account",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/login/ -test4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var xsrfCookie = postman.getResponseCookie(\"csrftoken\")\r",
+									"postman.setGlobalVariable('csrftoken', xsrfCookie.value);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRFToken",
+								"value": "{{csrftoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test4@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "xptmxm8899",
+									"type": "text"
+								},
+								{
+									"key": "csrfmiddlewaretoken",
+									"value": "{{csrftoken}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8899/account/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8899",
+							"path": [
+								"account",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/logout/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csrfmiddlewaretoken",
+									"value": "{{csrftoken}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8899/account/logout/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8899",
+							"path": [
+								"account",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/user/",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csrfmiddlewaretoken",
+									"value": "{{csrftoken}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8899/account/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8899",
+							"path": [
+								"account",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/password/reset/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csrfmiddlewaretoken",
+									"value": "{{csrftoken}}",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test4@test.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8899/account/password/reset/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8899",
+							"path": [
+								"account",
+								"password",
+								"reset",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/v1",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "api/v1/user/assets/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/assets/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"assets",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/user/bankaccounts/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/bankaccounts/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"bankaccounts",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/user/bankaccounts/",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-CSRFToken",
+										"value": "{{csrftoken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"진달래 입출금통장\",\r\n    \"bank_name\": \"굳굳은행\",\r\n    \"amount\": \"150000.0000\",\r\n    \"currency\": 85,\r\n    \"account_number\": \"5631351-1351-10\",\r\n    \"owner\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/bankaccounts/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"bankaccounts",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/user/cards/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/cards/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"cards",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/user/cards",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-CSRFToken",
+										"value": "{{csrftoken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"보통카드\",\r\n    \"card_company_name\": \"온누리카드\",\r\n    \"amount\": \"0.0000\",\r\n    \"currency\": 85,\r\n    \"credit_limit\": \"60000.0000\",\r\n    \"statement_balance\": \"1000.0000\",\r\n    \"outstanding_balance\": \"20.0000\",\r\n    \"owner\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/cards/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"cards",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/user/cashes/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/cashes/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"cashes",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "api/v1/user/cashes/",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-CSRFToken",
+										"value": "{{csrftoken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"비상금\",\r\n    \"amount\": \"500000.0000\",\r\n    \"currency\": 85,\r\n    \"owner\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/cashes/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"cashes",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transactions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/transactions/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"transactions",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transactions/deleteds/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/transactions/deleteds/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"transactions",
+										"deleteds",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transactions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-CSRFToken",
+										"value": "{{csrftoken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"삼겹살\",\r\n    \"amount\": \"15000.0000\",\r\n    \"currency\": 85,\r\n    \"category\": 4,\r\n    \"classification\": 0,\r\n    \"seller\": \"형제정육점\",\r\n    \"transaction_datetime\": \"2022-01-10T22:51:00+09:00\",\r\n    \"payment_method\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/transactions/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"transactions",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "transactions/deleteds/",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-CSRFToken",
+										"value": "{{csrftoken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"삼겹살\",\r\n    \"amount\": \"15000.0000\",\r\n    \"currency\": 85,\r\n    \"category\": 4,\r\n    \"classification\": 0,\r\n    \"seller\": \"형제정육점\",\r\n    \"transaction_datetime\": \"2022-01-10T22:51:00+09:00\",\r\n    \"payment_method\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8899/api/v1/user/transactions/deleteds/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8899",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"transactions",
+										"deleteds",
+										"0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "api/vi/categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\");\r",
+							"postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8899/api/v1/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"api",
+						"v1",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/v1/currencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8899/api/v1/currencies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8899",
+					"path": [
+						"api",
+						"v1",
+						"currencies",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -10,6 +10,8 @@ sleep 1
 
 # test admin
 python manage.py shell < dummy_superuser.py
+# test users
+python manage.py shell < dummy_users.py
 
 # # Prepare log files
 touch /gunicorn/logs/access.log

@@ -229,5 +229,5 @@ class CurrencyViewSet(viewsets.ModelViewSet):
             return Currency.objects.none()
         elif self.request.user.is_superuser:
             return Currency.objects.all()
-        #TODO: production 에서는 objects.all()
+        #TODO: production 에서는 objects.all()  // 여기서 필터링하지 말고 모델 object에서 필터링한다. Asset 추가 옵션으로 모두 나옴.
         return Currency.objects.filter(code__in=['KRW', 'USD', 'JPY', 'CNY', 'EUR', 'BTC', 'GBP'])

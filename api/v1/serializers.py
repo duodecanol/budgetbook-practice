@@ -93,11 +93,24 @@ class UserAssetForeignKey(serializers.PrimaryKeyRelatedField):
         return Asset.objects.filter(owner=self.context['request'].user)
 
 
+class UserFilteredPrimaryKeyRelatedField(serializers.PrimaryKeyRelatedField):
+    """ 쿼리 요청한 유저에 속한 것으로 제한 """
+    def get_queryset(self):
+        request = self.context.get('request', None)
+        queryset = super(UserFilteredPrimaryKeyRelatedField, self).get_queryset()
+        if not request or not queryset:
+            return None
+        return queryset.filter(owner=request.user)
+
+
 class TransactionSerializer(serializers.ModelSerializer):
 
     # 현재 단계에서는 결제수단 하이퍼링크를 표시하도록.
-    payment_method = serializers.HyperlinkedRelatedField(many=False, read_only=True, view_name='asset-detail')
-    # payment_method = serializers.SlugRelatedField(many=False, read_only=True, slug_field='name')
+    payment_method_link = serializers.HyperlinkedRelatedField(
+        many=False, read_only=True, view_name='asset-detail',
+        lookup_field='pk'
+    )
+    payment_method = UserFilteredPrimaryKeyRelatedField(queryset=Asset.objects)
 
     class Meta:
         model = Transaction
@@ -106,10 +119,13 @@ class TransactionSerializer(serializers.ModelSerializer):
             'title', 'amount', 'currency',
             'category', 'classification',
             'seller', 'transaction_datetime',
-            'payment_method', 'last_modified',
-            'data',
+            'payment_method', 'payment_method_link',
+            'last_modified', 'data',
             'deleted_at', #TODO: production 전에는 해당필드 감춤.
         )
+
+    def get_payment_method2(self, obj):
+        return Asset.objects.filter(owner=obj).values_list('pk', flat=True)
 
 
 class CategorySerializer(serializers.ModelSerializer):
