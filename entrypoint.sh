@@ -1,12 +1,12 @@
 #!/bin/bash
 sleep 5
 python manage.py makemigrations
-python manage.py sqlmigrate > ddl/ddl.sql
 python manage.py migrate
-python manage.py generateschema > ddl/schemas.yaml # Apply database migrations to all schemas
+sleep 1
 python manage.py collectstatic --noinput  # Collect static files
 python manage.py loaddata budgetbook/models/fixtures/categories_fixture.json
 python manage.py loaddata budgetbook/models/fixtures/currencies_fixture.json
+sleep 1
 # test admin
 if [ "$DJANGO_SUPERUSER_USERNAME" ]
 then

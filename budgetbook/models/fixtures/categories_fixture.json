@@ -1,7 +1,7 @@
 [
   {
     "model": "budgetbook.category",
-    "pk": 0,
+    "pk": 38,
     "fields": {
       "name": "식비",
       "parent": null,
@@ -60,7 +60,7 @@
     "pk": 4,
     "fields": {
       "name": "한식",
-      "parent": 0,
+      "parent": 38,
       "description": "amet reprehenderit eiusmod ut",
       "classification": 2,
       "create_date": "2022-01-15T16:07:14.310Z",
@@ -74,7 +74,7 @@
     "pk": 5,
     "fields": {
       "name": "중식",
-      "parent": 0,
+      "parent": 38,
       "description": "amet reprehenderit eiusmod ut",
       "classification": 0,
       "create_date": "2022-01-15T16:07:14.310Z",
@@ -88,7 +88,7 @@
     "pk": 6,
     "fields": {
       "name": "일식",
-      "parent": 0,
+      "parent": 38,
       "description": "amet reprehenderit eiusmod ut",
       "classification": 0,
       "create_date": "2022-01-15T16:07:14.310Z",
@@ -102,7 +102,7 @@
     "pk": 7,
     "fields": {
       "name": "양식",
-      "parent": 0,
+      "parent": 38,
       "description": "amet reprehenderit eiusmod ut",
       "classification": 0,
       "create_date": "2022-01-15T16:07:14.310Z",
@@ -116,7 +116,7 @@
     "pk": 8,
     "fields": {
       "name": "치킨",
-      "parent": 0,
+      "parent": 38,
       "description": "amet reprehenderit eiusmod ut",
       "classification": 0,
       "create_date": "2022-01-15T16:07:14.310Z",
