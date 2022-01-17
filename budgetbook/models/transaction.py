@@ -6,7 +6,7 @@ from django.utils.translation import gettext as _
 
 
 from budgetbook.models import Asset, Currency, Category
-from budgetbook.models.helpers import SoftDeleteModelMixin
+from budgetbook.models.helpers import SoftDeleteModel
 
 
 class TransactionClassification(models.IntegerChoices):
@@ -15,7 +15,7 @@ class TransactionClassification(models.IntegerChoices):
     TRANSFER = 2
 
 
-class Transaction(SoftDeleteModelMixin):
+class Transaction(SoftDeleteModel):
 
     title = models.CharField(_('transaction title'), max_length=127)
     amount = models.DecimalField(_('amount'), decimal_places=4, max_digits=65)

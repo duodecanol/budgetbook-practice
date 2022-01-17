@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
-from .helpers import SoftDeleteModelMixin
+from .helpers import SoftDeleteModel
 
 User = get_user_model()
 
@@ -12,7 +12,7 @@ class TransactionClassification(models.IntegerChoices):
     TRANSFER = 2
 
 
-class Category(SoftDeleteModelMixin):
+class Category(SoftDeleteModel):
     """
     expense / income 항목에 대한 카테고리
     초기 버전에서는 고정된 카테고리 항목을 제공하고

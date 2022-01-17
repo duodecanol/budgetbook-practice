@@ -7,7 +7,7 @@ class SoftDeleteManager(models.Manager):
         return super().get_queryset().filter(deleted_at__isnull=True)
 
 
-class SoftDeleteModelMixin(models.Model):
+class SoftDeleteModel(models.Model):
     deleted_at = models.DateTimeField(null=True, default=None)
     objects = SoftDeleteManager()  # 기본 object는 deleted_at이 not null인 자료만 가짐. L7 참조.
     all_objects = models.Manager()  # admin 등은 삭제된 아이템까지 보려면 all_object를 사용.

@@ -9,6 +9,9 @@ from budgetbook.models.transaction import Transaction
 class AssetSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
+        # HyperlinkedRelatedField 가 context로 request를 요구한다.
+        # /api/v1/user/bankaccounts 에서는 는 문제가 없으나, ./assets 에서는 nested 요청이므로
+        # context가 요구된다.
         if isinstance(instance, BankAccount):
             return BankAccountSerializer(
                 instance=instance, context={'request': self.context['request']}).data
@@ -35,26 +38,54 @@ class BankAccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BankAccount
-        fields = [
-            'name',
+        fields = (
+            'id', 'name',
             'bank_name',
-            'currency',
+            'amount', 'currency',
             'account_number',
-            'owner',
+            'data', 'owner',
             'transactions',
-        ]
+            'deleted_at',
+        )
 
 
 class CashSerializer(serializers.ModelSerializer):
+    transactions = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='transaction-detail'
+    )
+
     class Meta:
         model = Cash
-        fields = '__all__'
+        fields = (
+            'id', 'name',
+            'amount', 'currency',
+            'data', 'owner',
+            'transactions',
+            'deleted_at',
+        )
 
 
 class CreditCardSerializer(serializers.ModelSerializer):
+    transactions = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='transaction-detail'
+    )
+
     class Meta:
         model = CreditCard
-        fields = '__all__'
+        fields = (
+            'id', 'name',
+            'card_company_name',
+            'amount', 'currency',
+            'credit_limit', 'statement_balance', 'outstanding_balance',
+            'billing_cycle_date',
+            'data', 'owner',
+            'transactions',
+            'deleted_at',
+        )
 
 
 class UserAssetForeignKey(serializers.PrimaryKeyRelatedField):
