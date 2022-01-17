@@ -1,0 +1,72 @@
+version: '3.8'
+services:
+
+    web:
+        build: .
+        container_name: django
+        restart: unless-stopped
+        volumes:
+            - .:/simplebudgetbook
+            - ./gunicorn/logs:/gunicorn/logs
+            - static:/simplebudgetbook/static
+            - media:/simplebudgetbook/media
+        depends_on:
+            - db
+        expose:
+            - '8080'
+
+    db:
+        image: mysql:5.7
+        restart: always
+        container_name: database
+        ports:
+            - '33066:3306'
+        environment:
+            TZ: ${TIME_ZONE}
+            MYSQL_ROOT_HOST: '%'
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: ${DB_NAME}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+        command:
+            - --explicit_defaults_for_timestamp=1
+            - --character-set-server=utf8mb4 #utf8 charset server
+            - --collation-server=utf8mb4_unicode_ci # emoji/다국어 환경위해 4byte utf8
+            - --skip-character-set-client-handshake # 서버/client charset 맞춤
+            - --lower_case_table_names=1 # ignore case
+      #        - --ignore-db-dir=lost+found
+        volumes:
+            - .dbdata:/var/lib/mysql
+
+
+    # for mysql phpMinAdmin
+#    adminer:
+#        image: adminer:4.8.1
+#        container_name: simplebudgetbook_mysql_admin
+#        ports:
+#        - '5055:8900'
+#        depends_on:
+#          - db
+#        restart: unless-stopped
+
+
+    nginx:
+        restart: always
+        build: ./nginx/
+        container_name: nginx_server_bgm
+        volumes:
+            -   ./nginx/:/etc/nginx/conf.d
+            -   ./nginx/logs/:/simplebudgetbook/logs
+            -   static:/simplebudgetbook/static
+            -   media:/simplebudgetbook/media
+        ports:
+            -   '8899:8899'
+        depends_on:
+            -   web
+        links:
+            -   web
+
+volumes:
+    .dbdata:
+    media:
+    static:
