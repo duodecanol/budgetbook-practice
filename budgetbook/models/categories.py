@@ -36,7 +36,7 @@ class Category(SoftDeleteModel):
         verbose_name_plural = 'Categories'
 
     def __str__(self):
-        return f"[{self.parent}] {self.name}" if self.parent else self.name  # TODO: parent id로 이름 참조
+        return f"[{self.parent}] {self.name}" if self.parent else self.name
 
     @property
     def subcategories(self):

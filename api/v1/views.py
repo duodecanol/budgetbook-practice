@@ -1,10 +1,12 @@
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework.decorators import action
+from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 
 from api.v1.serializers import *
-
+import logging
 
 class BankAccountViewSet(viewsets.ModelViewSet):
 
@@ -100,13 +102,99 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if user.is_anonymous:
             return Transaction.objects.none()
         elif user.is_superuser:  # 관리자는 모든 결과를 볼 수 있다.
-            return Transaction.all_objects.all().order_by('create_date')
+            return Transaction.all_objects.all().order_by('-create_date')  # DESC
 
-        return Transaction.objects.all().filter(payment_method__owner=user).order_by('create_date')
+        return Transaction.objects.all().filter(payment_method__owner=user).order_by('-create_date')
 
     def destroy(self, request, *args, **kwargs):
         self.get_object().soft_delete()
         return Response({'message': f"transaction deleted"})
+
+    @action(methods=['GET'], detail=False, permission_classes=[permissions.IsAuthenticated],
+            url_path=r'deleteds', url_name='deleted-list', name='Deleted list')
+    def get_deleteds(self, request):
+        user = self.request.user
+        deleted_transactions = None
+
+        if user.is_anonymous:
+            return Transaction.objects.none()
+        elif user.is_superuser:
+            deleted_transactions = Transaction.all_objects.all() \
+                .filter(deleted_at__isnull=False) \
+                .order_by('-deleted_at')
+        elif user.is_authenticated:
+            deleted_transactions = Transaction.all_objects.all() \
+                .filter(deleted_at__isnull=False) \
+                .filter(payment_method__owner=user) \
+                .order_by('-deleted_at')
+
+        page = self.paginate_queryset(deleted_transactions)
+
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(deleted_transactions, many=True)
+
+        return Response(serializer.data)
+
+    @action(methods=['GET'], detail=False, permission_classes=[permissions.IsAuthenticated],
+            url_path=r'deleteds/(?P<deleted_transaction_id>[0-9]+)',
+            url_name='deleted-detail', name='Deleted detail')
+    def get_deleted(self, request, deleted_transaction_id):
+        user = self.request.user
+        deleted_transactions = None
+
+        if user.is_anonymous:
+            return Transaction.objects.none()
+        elif user.is_superuser:
+            deleted_transactions = Transaction.all_objects.all()\
+                .filter(deleted_at__isnull=False) \
+                .order_by('-deleted_at')
+        elif user.is_authenticated:
+            deleted_transactions = Transaction.all_objects.all() \
+                .filter(deleted_at__isnull=False) \
+                .filter(payment_method__owner=user) \
+                .order_by('-deleted_at')
+
+        serializer = self.get_serializer(deleted_transactions, many=True)
+        deleted_transaction_id = int(deleted_transaction_id)
+        data_length = deleted_transactions.count()
+
+        if deleted_transaction_id < 0 or deleted_transaction_id > data_length - 1:
+            return Response({'message': f"Index out of range. Input valid value from 0 to {data_length - 1}"})
+
+        return Response(serializer.data[deleted_transaction_id])
+
+    @get_deleted.mapping.delete
+    def delete_deleted(self, request, deleted_transaction_id, *args, **kwargs):
+        user = self.request.user
+        deleted_transactions = None
+
+        if user.is_anonymous:
+            return Transaction.objects.none()
+        elif user.is_superuser:
+            deleted_transactions = Transaction.all_objects.all()\
+                .filter(deleted_at__isnull=False) \
+                .order_by('-deleted_at')
+        elif user.is_authenticated:
+            deleted_transactions = Transaction.all_objects.all() \
+                .filter(deleted_at__isnull=False) \
+                .filter(payment_method__owner=user) \
+                .order_by('-deleted_at')
+
+        deleted_transaction_id = int(deleted_transaction_id)
+        data_length = deleted_transactions.count()
+
+        if deleted_transaction_id < 0 or deleted_transaction_id > data_length - 1:
+            return Response({'message': f"Index out of range. Input valid value from 0 to {data_length - 1}"})
+
+        deleted_transaction = deleted_transactions[deleted_transaction_id]
+        deleted_transaction.restore()
+
+        return Response({'massage': f"Transaction restored: [{deleted_transaction.pk}] {deleted_transaction.title}, "
+                                    f"{deleted_transaction.amount}, {deleted_transaction.seller}"})
+
 
 
 
